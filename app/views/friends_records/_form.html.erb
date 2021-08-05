@@ -1,0 +1,48 @@
+<%= form_with(model: friends_record) do |form| %>
+  <% if friends_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friends_record.errors.count, "error") %> prohibited this friends_record from being saved:</h2>
+
+      <ul>
+        <% friends_record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%#(to make this functional remove # and write =) form.label :first_name %> 
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
+  </div>
+</br>
+  <div class="field form-group">
+    <%# form.label :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
+  </div>
+</br>
+  <div class="field form-group">
+    <%# form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
+  </div>
+</br>
+  <div class="field form-group">
+    <%# form.label :twitter %>
+    <%= form.text_field :twitter, class:"form-control", placeholder:"Twitter" %>
+  </div>
+</br>
+  <div class="field form-group">
+    <%# form.label :phone %>
+    <%= form.text_field :phone , class:"form-control", placeholder:"Phone"%>
+  </div>
+  </br>
+  <div class="field form-group">
+    <%# form.label :phone %>
+    <%= form.number_field :user_id , id: :friends_record_user_id, class:"form-control", value: current_user.id, type: :hidden%>
+  </div>
+  </br>
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary"%>
+  </div>
+</br>
+<% end %>

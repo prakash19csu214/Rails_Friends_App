@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+<h1>Friends List</h1>
+<table class="table table-striped table-hover table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Twitter</th>
+      <th>Phone</th>
+      <th> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends_records.each do |friends_record| %>
+    <% if friends_record.user == current_user%>
+      <tr>
+        <td>
+          <%= link_to friends_record.first_name + " " + friends_record.last_name, friends_record %>
+        </td>
+        <td><%= friends_record.email %></td>
+        <td><%= friends_record.twitter %></td>
+        <td><%= friends_record.phone %></td>
+        <td><%= link_to 'Delete', friends_record, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"  %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Friends Record', new_friends_record_path, class:"btn btn-secondary" %>
+
+<% else %>
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+
+<% end %>

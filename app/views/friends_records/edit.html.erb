@@ -1,0 +1,7 @@
+<h1>Editing Friends Record</h1>
+<br/>
+<%= render 'form', friends_record: @friends_record, class:"btn btn-secondary" %>
+
+<%= link_to 'Show', @friends_record, class:"btn btn-secondary" %> |
+<%= link_to 'Delete', @friends_record, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %> |
+<%= link_to 'Back', friends_records_path, class:"btn btn-secondary" %>
